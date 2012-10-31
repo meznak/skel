@@ -1,4 +1,4 @@
-rsync -aHAX ~/.vim ~/skel/.vim
+rsync -aHAX ~/.vim ~/skel/
 cd ~/.ssh/
 cp -a *.pub authorized_keys known_hosts config ~/skel/.ssh/
 cd ~/skel/
