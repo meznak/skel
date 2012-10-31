@@ -1,5 +1,6 @@
 rsync -aHAX ~/.vim ~/skel/.vim
-rsync -aHAX ~/.ssh ~/skel/.ssh
+cd ~/.ssh/
+cp *.pub authorized_keys known_hosts config ~/skel/.ssh/
 cd ~/skel/
 git add .
 git commit -m "scripted commit"
