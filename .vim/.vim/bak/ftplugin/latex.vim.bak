@@ -1,2 +1,0 @@
-:map <F5> <ESC>:w<CR>:!latex % latex %; dvipdf `basename % .tex`.dvi; evince `basename % .tex`.pdf<CR>
-:vmap <F5> <ESC>:w<CR>:!latex % latex %; dvipdf `basename % .tex`.dvi; evince `basename % .tex`.pdf<CR>

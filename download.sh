@@ -1,4 +1,4 @@
 git pull
-rsync -aHAX .vim/ ~/.vim/
-rsync -aHAX .ssh/ ~/.ssh/
+rsync -aHAX .vim ~
+rsync -aHAX .ssh ~
 chmod 0600 ~/.ssh/*
