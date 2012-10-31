@@ -52,12 +52,11 @@ colorscheme desert
 " let g:solarized_visibility='high'
 set background=dark
 " colorscheme solarized
-
-highlight cursorline cterm=reverse
 highlight cursorcolumn cterm=reverse
+highlight cursorline cterm=reverse
 " }}}3
 " Gvim {{{3
-set guifont=Monospace\ 8
+set guifont=OxygenMono
 set guioptions-=T
 " }}}3
 " }}}2
