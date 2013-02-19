@@ -1,8 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/nate/iguana.rix.si/assets/themes/twitter/bootstrap/css'
 let g:netrw_dirhist_2='/home/nate/iguana.rix.si/_layouts'
 let g:netrw_dirhist_3='/home/nate/.ssh'
 let g:netrw_dirhist_4='/home/nate/iguana.rix.si/_includes/themes/blag'
 let g:netrw_dirhist_5='/home/nate/.ssh'
 let g:netrw_dirhist_6='/etc/apache2/sites-enabled'
+let g:netrw_dirhist_7='/home/nate/iguana.rix.si/_layouts'
+let g:netrw_dirhist_8='/home/nate/Dropbox'
+let g:netrw_dirhist_9='/home/nate'

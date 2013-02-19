@@ -4,6 +4,7 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
+scriptencoding utf-8
 set nocompatible        " Use Vim defaults (much better!)
 set ai                  " always set autoindenting on
 set viminfo=!,'20,\"50  " read/write a .viminfo file, don't store more
@@ -30,6 +31,9 @@ autocmd BufReadPost *
 " }}}2
 
 " ==== Appearance related variables ==== {{{2
+set encoding=utf-8
+set termencoding=utf-8
+set t_Co=16
 set ruler                                                               "show the cursor position all the time
 syntax on
 set so=6                                                                "Number of liness to keep above and below the cursor
@@ -37,7 +41,7 @@ set pt=<F2>                                                             "Toggle 
 let &guicursor = &guicursor . ",a:blinkon0"                             "Don't wake up system with blinking cursor:
 set lbr                                                                 "break on words rather than lines when wrapping in editor
 set ls=2                                                                "Always draw a status line
-set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %{getcwd()}\ \ \ Line:\ %l/%L:%c "Sexy Status Line
+"set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %{getcwd()}\ \ \ Line:\ %l/%L:%c "Sexy Status Line
 set number                                                              "Show line numberse
 set numberwidth=3                                                       "Three digit line numbers
 
@@ -45,17 +49,22 @@ set cursorcolumn                                                        "highlig
 set cursorline                                                          "highlight line cursor is in
 
 " Solarized (disabled) {{{3
-colorscheme vividchalk
+colorscheme desert
 " let g:solarized_termtrans=1
 " let g:solarized_menu=0
 " let g:solarized_contrast='high'
 " let g:solarized_visibility='high'
 set background=dark
 " colorscheme solarized
+
+highlight cursorline cterm=underline
+highlight cursorcolumn cterm=reverse
 " }}}3
 " Gvim {{{3
-set guifont=OxygenMono
+set guifont=Monospace\ 8
 set guioptions-=T
+
+
 " }}}3
 " }}}2
 
@@ -73,7 +82,8 @@ set tw=78 " Wrap at 78 characters
 set is                  " Jump to result while searching
 set ic                  " Ignore case when searching
 set scs                 " Don't ignore case if you change case
-set nohls               " Don't highlight search results
+"set nohls               " Don't highlight search results
+set hlsearch            " Highlight search results
 " }}}2
 
 " ==== Filetype Sources ==== {{{2
@@ -139,10 +149,22 @@ command! W w !sudo tee % >/dev/null
 map <Leader>f :Ggrep 
 " Sort using Vissort
 vmap <Leader>s :Vissort<CR>
+" Toggle line numbers
+nmap <leader>1 :setlocal number!<CR>
+" Toggle paste mode
+nmap <leader>o :set paste!<CR>
+" Remove search highligihts
+nmap <leader>q :nohlsearch<CR>
+" Traverse buffers
+nmap <C-e> :e#<CR>
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
+" Toggle NERDTree
+nmap <leader>n :NERDTreeToggle<CR>
 
 " mark 'misplaced' tab characters
-" set listchars=tab:·\ ,trail:·
-set listchars=tab:\�\ ,trail:�
+" set listchars=tab:Â·\ ,trail:Â·
+set listchars=tab:\·\ ,trail:·
 set list
 
 " Convert ruby 1.8-style hashrockets in to 1.9 style
@@ -155,6 +177,20 @@ nnoremap <Leader>l :ls<CR>:b<space>
 " vim-notes Directory
 let g:notes_directory = '~/Dropbox/TapNote'
 let g:notes_suffix = '.txt'
+
+" Breaks arrow key habits
+map <up> :!for n in `seq 1 5`; do sleep .5; echo -e '\a'; done<CR><CR>
+map <down> :!for n in `seq 1 5`; do sleep .5; echo -e '\a'; done<CR><CR>
+map <left> :!for n in `seq 1 5`; do sleep .5; echo -e '\a'; done<CR><CR>
+map <right> :!for n in `seq 1 5`; do sleep .5; echo -e '\a'; done<CR><CR>
+
+" Fix wrapped line movement
+:nmap j gj
+:nmap k gk
+
+" Allow Powerline symbols
+let g:Powerline_symbols = 'fancy'
+
 "}}}2
 
 " }}}1

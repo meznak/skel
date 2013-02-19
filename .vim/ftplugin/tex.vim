@@ -1,2 +1,2 @@
-:map <F5> <ESC>:w<CR>:!pdflatex %<CR>
+:map <F5> <ESC>:w<CR>:!pdflatex %<CR><CR>:!pdflatex %<CR>
 :map <F6> <ESC>:w<CR>:!aspell --mode=tex -c %<CR>
